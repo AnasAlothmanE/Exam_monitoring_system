@@ -56,4 +56,18 @@ mp_drawing = mp.solutions.drawing_utils
 ```
 ## How the system works
 Log in either with a student account or a teacher account.
-![Log in](BreadcrumbsExam_monitoring_system/login.png)
+![Log in](login.png)
+## When you log in as a student
+the questions will be displayed, the student will choose the answers, and then the student's score will be calculated and displayed after the student has chosen the answers.
+![student](student.png)
+## When you log in as a teacher
+The number of questions to be written will be chosen by the teacher.
+![teacher](teacher.png)
+After selecting the number of questions, the fields will appear, the question will be written with its answers, and the correct answer will be selected for electronic correction.
+![teacher](teacher1.png)
+## Administration page
+Through this page, accounts will be created for either the teacher or the student.
+![teacher](managment.png)
+It is also possible to display a report on the number of failed and successful students and other matters.
+![teacher](managment1.png)
+In short, this project aims to create a smart monitoring system to detect and prevent cheating during remote exams. The camera is automatically turned on when the exam starts to monitor student behavior, and if any cheating attempts are detected, the student is immediately recorded and added to the sanctions list. This system allows exams to be conducted in a safe and reliable manner, ensuring academic integrity in remote learning environments.
