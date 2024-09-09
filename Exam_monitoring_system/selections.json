@@ -1,0 +1,86 @@
+{
+  "1": [
+    {
+      "question": "1. ما هو البروتوكول الذي يستخدمه الويب لنقل البيانات؟",
+      "selectedOptionText": "HTTP"
+    },
+    {
+      "question": "2. ما هو الغرض من وظيفة SQL؟",
+      "selectedOptionText": "ادارة قواعد البيانات"
+    },
+    {
+      "question": "3. ما هي الذاكرة العشوائية (RAM)؟",
+      "selectedOptionText": "ذاكرة تخزين مؤقتة"
+    },
+    {
+      "question": "ما هو نظام التشغيل الأكثر استخدامًا في الخوادم؟",
+      "selectedOptionText": "linux"
+    },
+    {
+      "question": "ما هو الفرق بين HTTP و HTTPS؟",
+      "selectedOptionText": "http اسرع من https"
+    },
+    {
+      "question": "ما هو مفهوم \"الذكاء الاصطناعي\"؟",
+      "selectedOptionText": "محاكاة الذكاء البشري بواسطة الالة"
+    },
+    {
+      "question": "ما هو الهدف من HTML؟",
+      "selectedOptionText": "بناء هيكل صفحات الويب"
+    },
+    {
+      "question": "ما هو مفهوم \"البرمجة الكائنية التوجه\" (OOP)؟",
+      "selectedOptionText": "نمط برمجي يعتمد على الكائنات"
+    },
+    {
+      "question": "ما هي وظيفة Firewall؟",
+      "selectedOptionText": "حماية الشبكة من التهديدات"
+    },
+    {
+      "question": "ما هو الاختصار API؟",
+      "selectedOptionText": "Application Programming Interface"
+    }
+  ],
+  "anas_alothman": [
+    {
+      "question": "1. ما هو البروتوكول الذي يستخدمه الويب لنقل البيانات؟",
+      "selectedOptionText": "FTP"
+    },
+    {
+      "question": "2. ما هو الغرض من وظيفة SQL؟",
+      "selectedOptionText": "معالجة الصورة"
+    },
+    {
+      "question": "3. ما هي الذاكرة العشوائية (RAM)؟",
+      "selectedOptionText": "ذاكرة تخزين مؤقتة"
+    },
+    {
+      "question": "ما هو نظام التشغيل الأكثر استخدامًا في الخوادم؟",
+      "selectedOptionText": "android"
+    },
+    {
+      "question": "ما هو الفرق بين HTTP و HTTPS؟",
+      "selectedOptionText": "لا يوجد فرق"
+    },
+    {
+      "question": "ما هو مفهوم \"الذكاء الاصطناعي\"؟",
+      "selectedOptionText": "القدرة على البرمجة"
+    },
+    {
+      "question": "ما هو الهدف من HTML؟",
+      "selectedOptionText": "معالجة البيانات"
+    },
+    {
+      "question": "ما هو مفهوم \"البرمجة الكائنية التوجه\" (OOP)؟",
+      "selectedOptionText": "نمط برمجي يعتمد على الدوال فقط"
+    },
+    {
+      "question": "ما هي وظيفة Firewall؟",
+      "selectedOptionText": "تسريع الإنترنت"
+    },
+    {
+      "question": "ما هو الاختصار API؟",
+      "selectedOptionText": "Application Programming Interface"
+    }
+  ]
+}

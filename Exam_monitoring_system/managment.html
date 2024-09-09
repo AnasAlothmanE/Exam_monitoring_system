@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تخطيط باستخدام Flexbox</title>
+    <link rel="stylesheet" href="stylemanager.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-row">
+            <div class="div_con">
+                <h2>إضافة حساب جديد</h2>
+                <form id="accountForm">
+                    <label for="username">اسم المستخدم:</label>
+                    <input type="text" id="username" name="username" required>
+                    <br><br>
+                    <label for="password">كلمة المرور:</label>
+                    <input type="password" id="password" name="password" required>
+                    <br><br>
+                    <label for="role">اختر نوع الحساب:</label>
+                    <select id="role" name="role">
+                        <option value="student">طالب</option>
+                        <option value="teacher">معلم</option>
+                    </select>
+                    <br><br>
+                    <button type="submit">إضافة الحساب</button>
+                </form>
+            </div>
+            <div class="div_con1">
+                <label for="marksOption">اختر نوع العرض:</label>
+                <select id="marksOption">
+                    <option value="all">إظهار علامات الطلاب</option>
+                    <option value="failing">إظهار علامات الطلاب الراسبين</option>
+                    <option value="highest">إظهار أعلى علامة</option>
+                    <option value="lowest">إظهار أقل علامة</option>
+                    <option value="average">متوسط النجاح</option>
+                </select>
+                <button id="loadMarks">عرض</button>
+            </div>
+        </div>
+        <div class="bottom-row">
+            <div id="marksTable">
+            </div>
+            <div class="chart">
+                <canvas id="marksChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="javascriptmanager.js"></script>
+</body>
+</html>

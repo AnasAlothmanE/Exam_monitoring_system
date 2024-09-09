@@ -1,0 +1,172 @@
+html {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#005bff7d, #11516b);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container {
+    flex-direction: column;
+    gap: 20px;
+    width: 73%;
+    height: 98%;
+    margin: 10%
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between; /* Spread divs evenly */
+    align-items: center; /* Align items vertically centered */
+}
+
+.bottom-row {
+    display: flex;
+    gap: 20px;
+}
+
+.div_con {
+    width: 45%; /* Adjust the width to fit two divs side by side */
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.div_con1 {
+    width: 24%;
+    padding: 18px;
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10%;
+}
+
+
+.div_con h2, .div_con1 label {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    direction: rtl;
+}
+
+.div_con input,
+.div_con select,
+.div_con button {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    direction: rtl;
+}
+
+.div_con1 label, .div_con1 select, .div_con1 button {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    direction: rtl;
+}
+
+.div_con select {
+    background: rgba(0, 52, 96, 0.5);
+    border: none;
+    color: #f2f2f2;
+    padding: 10px;
+}
+
+.div_con button {
+    background: rgba(0, 52, 96, 0.5);
+    border: none;
+    color: #f2f2f2;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.div_con1 select {
+    background: rgba(0, 52, 96, 0.5);
+    border: none;
+    color: #f2f2f2;
+    padding: 10px;
+}
+
+.div_con1 button {
+    background: rgba(0, 52, 96, 0.5);
+    border: none;
+    color: #f2f2f2;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#marksTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 90px;
+    color: #fff;
+}
+
+#marksTable th, #marksTable td {
+    border: 1px solid #fff;
+    padding: 12px;
+    text-align: center;
+}
+
+#marksTable th {
+    background-color: #fff;
+    color: #000;
+    width: 192px;
+}
+
+
+#marksChart {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}
+label{
+    width: 100%; 
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    border: none;
+    /* border-bottom: 1px solid #fff; */
+    outline: none;
+    background: transparent;
+    direction: rtl;
+    float: right;
+    display: block;
+}
+.chart{
+    width: 40%;
+    text-align: center;
+}

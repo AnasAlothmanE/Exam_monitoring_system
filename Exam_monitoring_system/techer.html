@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة أسئلة</title>
+    <link rel="stylesheet" href="s.css">
+</head>
+<body>
+    <div class="teacher-page">
+        <h1>إضافة أسئلة مع خيارات</h1>
+        
+        <h1>حدد عدد الأسئلة:</h1>
+        <input type="number" id="numQuestions" min="1" value="1">
+        <button type="button" onclick="generateQuestions()">إنشاء الأسئلة</button>
+
+        <form id="questionsForm">
+        </form>
+
+        <button type="button" onclick="submitQuestions()">حفظ الأسئلة والإجابات</button>
+    </div>
+
+    <script>
+     function generateQuestions() {
+    const numQuestions = document.getElementById('numQuestions').value;
+    const questionsForm = document.getElementById('questionsForm');
+    questionsForm.innerHTML = ''; 
+
+    for (let i = 0; i < numQuestions; i++) {
+        const questionContainer = document.createElement('div');
+        questionContainer.className = 'question-container';
+
+        const questionLabel = document.createElement('label');
+        questionLabel.innerText = `السؤال ${i + 1}:`;
+        questionContainer.appendChild(questionLabel);
+
+        const questionInput = document.createElement('input');
+        questionInput.type = 'text';
+        questionInput.name = `question${i + 1}`;
+        questionInput.placeholder = 'اكتب السؤال هنا';
+        questionContainer.appendChild(questionInput);
+
+        for (let j = 0; j < 4; j++) {
+            const answerContainer = document.createElement('div');
+            answerContainer.className = 'answer-container';
+
+            const answerInput = document.createElement('input');
+            answerInput.type = 'text';
+            answerInput.name = `answer${i + 1}_${j + 1}`;
+            answerInput.placeholder = 'اكتب الإجابة هنا';
+            answerContainer.appendChild(answerInput);
+
+            const correctContainer = document.createElement('div');
+            correctContainer.className = 'correct-container';
+
+            const correctRadio = document.createElement('input');
+            correctRadio.type = 'radio';
+            correctRadio.name = `correct${i + 1}`; 
+            correctRadio.value = `answer${i + 1}_${j + 1}`;
+            correctContainer.appendChild(correctRadio);
+
+            const correctLabel = document.createElement('label');
+            correctLabel.innerText = 'صحيح';
+            correctContainer.appendChild(correctLabel);
+
+            answerContainer.appendChild(correctContainer);
+            questionContainer.appendChild(answerContainer);
+        }
+
+        questionsForm.appendChild(questionContainer);
+    }
+}
+
+function submitQuestions() {
+    const form = document.getElementById('questionsForm');
+    const formData = new FormData(form);
+    
+    const questions = [];
+    const answers = {};
+    const errorMessages = [];
+
+  
+    document.querySelectorAll('.error-message').forEach(elem => elem.remove());
+
+    formData.forEach((value, key) => {
+        if (key.startsWith('question')) {
+            const questionIndex = key.match(/\d+/)[0];
+            questions.push({ 
+                question: value, 
+                answers: [],  
+                correctAnswer: null 
+            }); 
+        } else if (key.startsWith('answer')) {
+            const questionIndex = key.match(/\d+/)[0];
+            const answerIndex = key.split('_')[1]; 
+
+            const answerText = value;
+            
+            if (!answers[questionIndex]) {
+                answers[questionIndex] = [];
+            }
+            answers[questionIndex][answerIndex - 1] = answerText; 
+            
+            questions[questionIndex - 1].answers.push(answerText);
+        } else if (key.startsWith('correct')) {
+            const questionIndex = key.match(/\d+/)[0]; 
+            const correctAnswerIndex = parseInt(value.split('_')[1], 10) - 1; 
+
+            questions[questionIndex - 1].correctAnswer = answers[questionIndex][correctAnswerIndex];
+        }
+    });
+
+    questions.forEach((q, index) => {
+        const questionIndex = index + 1;
+        const questionInput = document.querySelector(`input[name="question${questionIndex}"]`);
+        if (!q.question) {
+            errorMessages.push({ field: questionInput, message: 'يجب إدخال السؤال.' });
+        }
+
+        const correctAnswer = q.correctAnswer;
+        if (!correctAnswer) {
+            errorMessages.push({ field: questionInput, message: 'يجب اختيار إجابة صحيحة.' });
+        }
+        
+        for (let i = 1; i <= 4; i++) {
+            const answerInput = document.querySelector(`input[name="answer${questionIndex}_${i}"]`);
+            if (!answers[questionIndex] || !answers[questionIndex][i - 1]) {
+                errorMessages.push({ field: answerInput, message: 'يجب إدخال جميع الإجابات.' });
+            }
+        }
+    });
+
+    errorMessages.forEach(error => {
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.innerText = error.message;
+        error.field.parentNode.insertBefore(errorMessage, error.field.nextSibling);
+    });
+
+    if (errorMessages.length > 0) {
+        return;
+    }
+
+    const dataToSend = {
+        questions: questions.map(q => ({
+            question: q.question,
+            answers: q.answers, 
+            correctAnswer: q.correctAnswer 
+        }))
+    };
+
+    fetch('http://localhost:3000/api/saveQuestions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataToSend)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            alert('تم حفظ الأسئلة بنجاح!');
+            document.getElementById('questionsForm').innerHTML = '';
+            document.getElementById('numQuestions').value = '1';
+        } else {
+            alert('حدث خطأ أثناء حفظ الأسئلة.');
+        }
+    })
+    .catch(error => console.error('Error saving questions:', error));
+}
+
+    </script>
+    <style>
+        .answer-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .correct-container {
+            display: contents
+        }
+    </style>
+</body>
+</html>

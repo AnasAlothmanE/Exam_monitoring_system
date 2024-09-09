@@ -1,0 +1,42 @@
+[
+  {
+    "question": "1. ما هو البروتوكول الذي يستخدمه الويب لنقل البيانات؟",
+    "correctAnswer": "HTTP"
+  },
+  {
+    "question": "2. ما هو الغرض من وظيفة SQL؟",
+    "correctAnswer": "ادارة قواعد البيانات"
+  },
+  {
+    "question": "3. ما هي الذاكرة العشوائية (RAM)؟",
+    "correctAnswer": "ذاكرة تخزين مؤقتة"
+  },
+  {
+    "question": " ما هو نظام التشغيل الأكثر استخدامًا في الخوادم؟",
+    "correctAnswer": "linux"
+  },
+  {
+    "question": "ما هو الفرق بين HTTP و HTTPS؟",
+    "correctAnswer": "https اكثر امانا "
+  },
+  {
+    "question": "ما هو مفهوم \"الذكاء الاصطناعي\"؟",
+    "correctAnswer": "محاكاة الذكاء البشري بواسطة الالة"
+  },
+  {
+    "question": "ما هو الهدف من HTML؟",
+    "correctAnswer": "بناء هيكل صفحات الويب"
+  },
+  {
+    "question": "ما هو مفهوم \"البرمجة الكائنية التوجه\" (OOP)؟",
+    "correctAnswer": "نمط برمجي يعتمد على الكائنات"
+  },
+  {
+    "question": "ما هي وظيفة Firewall؟",
+    "correctAnswer": " حماية الشبكة من التهديدات"
+  },
+  {
+    "question": "ما هو الاختصار API؟",
+    "correctAnswer": "Application Programming Interface"
+  }
+]

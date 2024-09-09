@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Light Button</title>
+    <link rel="stylesheet" href="stylelogin.css">
+</head>
+<body>
+    <div class="login-box">
+        <span></span>
+        <span></span>
+        <span></span>   
+        <span></span>
+        <h2>Login Form</h2>
+        <form id="loginForm">
+            <div class="user-box">
+                <input type="text" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <a href="#" id="loginButton">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Submit
+            </a>
+        </form>
+        <div id="loading" style="display: none;">Loading...</div>
+    </div>
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loadingDiv = document.getElementById('loading');
+    
+            loadingDiv.style.display = 'block';
+    
+            fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                loadingDiv.style.display = 'none';
+                if (data.success) {
+                    localStorage.setItem('username', username);
+                    window.location.href = 'index.html';
+                } else {
+                    return fetch('http://localhost:3000/api/account_teacher') // Updated URL
+                        .then(response => response.json())
+                        .then(users => {
+                            const validUser = users.find(user => user.username === username && user.password === password);
+                            if (validUser) {
+                                window.location.href = 'techer.html'; // Adjust the URL as needed
+                            } else {
+                                throw new Error('Invalid username or password');
+                            }
+                        });
+                }
+            })
+            .catch(error => {
+                loadingDiv.style.display = 'none';
+                alert(error.message);
+            });
+        });
+    </script>
+</body>
+</html>

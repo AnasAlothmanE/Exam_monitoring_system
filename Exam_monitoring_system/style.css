@@ -1,0 +1,320 @@
+/* تنسيق خاص بالـ grid-container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* عمودين بنفس العرض */
+    gap: 20px; /* المسافة بين الأعمدة والصفوف */
+    width: 100%; /* ضمان ملء العرض الكامل */
+    max-width: 1200px; /* تحديد الحد الأقصى للعرض */
+    padding: 20px; /* إضافة مساحة داخلية */
+    box-sizing: border-box; /* تضمين الحشوة والحدود في العرض الإجمالي */
+    margin: 0 auto; /* توسيط الشبكة */
+}
+
+/* تنسيق خاص بـ question-container */
+.question-container {
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(20px); /* بدء العناصر أسفل الموقع المحدد */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* إضافة انتقال تدريجي للتأثيرات */
+    direction: rtl;
+
+}
+
+/* عند إضافة فئة visible */
+.question-container.visible {
+    opacity: 1; /* جعل العناصر مرئية عند عرضها */
+    transform: translateY(0); /* إرجاع العناصر إلى موقعها الأصلي */
+}
+
+/* تنسيق خاص بالأسئلة */
+.question {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 16px;
+    color: #09c0f5; /* لون النص البارز */
+    font-size: 35px;
+}
+
+/* تنسيق الخيارات داخل الـ div */
+.option {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 16px;
+    color: #fff; /* تغيير اللون إلى الأبيض للتباين مع الخلفية الداكنة */
+    font-size: 19px;
+    transition: transform 0.3s ease, z-index 0s 0.3s; /* إضافة تأثير التحرك للامام */
+}
+
+/* تنسيق للـ input من نوع radio */
+.container input[type="radio"] {
+    accent-color: #09c0f5; /* تغيير اللون إلى اللون البارز */
+    width: 29px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+/* تحسين تباعد الأسطر في النصوص */
+.container {
+    line-height: 1.5; /* تحسين تباعد الأسطر */
+}
+
+/* تنسيق الطباعة */
+@media print {
+    .container {
+        border: none;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+}
+
+#saveButton {
+  
+
+    position: relative;
+    padding: 10px 20px;
+    font-size: 26px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    letter-spacing: 0px;
+
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #09c0f5;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    letter-spacing: 0px;
+    direction: rtl;
+
+
+
+
+
+}
+
+#saveButton:hover {
+    background-color: #09c0f5; /* تغيير اللون عند المرور إلى لون أفتح */
+}
+
+/* خاصية رسالة عدم الإجابة */
+.no-answer-message {
+    color: #ff4d4d; /* لون أحمر واضح */
+    font-size: 0.9em;
+}
+
+/* Animation for the question-container.visible div */
+.question-container.visible span {
+    position: absolute;
+    display: block;
+}
+
+.question-container.visible span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim1 1s linear infinite;
+}
+
+@keyframes div-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+.question-container.visible span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes div-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+.question-container.visible span:nth-child(3) {
+    bottom: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes div-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%, 100% {
+        right: 100%;
+    }
+}
+
+.question-container.visible span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes div-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+/* تأثير عند اختيار الخيار */
+.option.selected {
+    transform: scale(1.1);
+    z-index: 1;
+    transition: transform 0.3s ease, z-index 0s;
+}
+
+
+
+
+
+/* تأثير الخط المتحرك حول الزر */
+#saveButton::before, 
+#saveButton::after, 
+#saveButton span:nth-child(1), 
+#saveButton span:nth-child(2) {
+    content: '';
+    position: absolute;
+    border: 2px solid #09c0f5; /* تغيير اللون إلى اللون البارز */
+    border-radius: 5px;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#saveButton::before {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim1 1s linear infinite;
+}
+
+#saveButton::after {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+#saveButton span:nth-child(1) {
+    bottom: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+#saveButton span:nth-child(2) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #09c0f5); /* تغيير لون التدرج إلى اللون البارز */
+    animation: div-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes div-anim1 {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes div-anim2 {
+    0% { top: -100%; }
+    50%, 100% { top: 100%; }
+}
+
+@keyframes div-anim3 {
+    0% { right: -100%; }
+    50%, 100% { right: 100%; }
+}
+
+@keyframes div-anim4 {
+    0% { bottom: -100%; }
+    50%, 100% { bottom: 100%; }
+}
+
+#saveButton:hover::before,
+#saveButton:hover::after,
+#saveButton:hover span:nth-child(1),
+#saveButton:hover span:nth-child(2) {
+    animation: none; /* إيقاف الأنيميشن على hover */
+}
+
+.option {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 16px;
+    color: #fff;
+    font-size: 19px;
+    transition: transform 0.3s ease, z-index 0s 0.3s; /* إضافة تأثير التحرك للامام */
+}
+
+/* تأثير عند اختيار الخيار */
+.option.selected {
+    transform: scale(1.1); /* تكبير العنصر عند اختياره */
+    z-index: 1; /* جلب العنصر إلى الأمام */
+    transition: transform 0.3s ease, z-index 0s; /* تأثير التحرك للامام */
+}
+html {
+    min-height: 100%; /* استخدام min-height بدلاً من height */
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#005bff7d, #11516b);
+}
+
+body {
+    min-height: 100vh; /* التأكد من أن جسم الصفحة يغطي 100% من ارتفاع العرض */
+    margin: 0; /* إزالة الهوامش */
+    padding: 0; /* إزالة الحشوات */
+}
