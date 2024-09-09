@@ -53,3 +53,7 @@ import mediapipe as mp
 mp_face_detection = mp.solutions.face_detection
 face_detection = mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5)
 mp_drawing = mp.solutions.drawing_utils
+```
+## How the system works
+Log in either with a student account or a teacher account.
+![Log in](BreadcrumbsExam_monitoring_system/login.png)
